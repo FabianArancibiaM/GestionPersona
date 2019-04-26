@@ -1,0 +1,24 @@
+{
+  "name": "GestionPersona",
+  "version": "1.0.0",
+  "description": "Desarrollado con MEAN",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FabianArancibiaM/GestionPersona.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FabianArancibiaM/GestionPersona/issues"
+  },
+  "homepage": "https://github.com/FabianArancibiaM/GestionPersona#readme",
+  "dependencies": {
+    "espress": "0.0.0",
+    "express": "^4.16.4"
+  }
+}
