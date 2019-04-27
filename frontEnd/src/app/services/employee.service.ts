@@ -10,7 +10,9 @@ export class EmployeeService {
   employees: Employee[];
   readonly URL_API : 'http://localhost:3000/api/employee';
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient) { 
+    this.selectedEmployeed = new Employee();
+  }
 
   getEmployees(){
     return this.http.get(this.URL_API+'/');
@@ -19,9 +21,9 @@ export class EmployeeService {
     return this.http.post(this.URL_API+'/',employee);
   }
   putEmployees(employee:Employee){
-    return this.http.put(this.URL_API+'/'+`$employee._id`,employee);
+    return this.http.put(this.URL_API+`/${employee._id}`,employee);
   }
   deleteEmployees(_id:string){
-    return this.http.delete(this.URL_API+`/$_id`);
+    return this.http.delete(this.URL_API+`/${_id}`);
   }
 }
