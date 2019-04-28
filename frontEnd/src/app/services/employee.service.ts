@@ -8,7 +8,7 @@ export class EmployeeService {
 
   selectedEmployeed: Employee;
   employees: Employee[];
-  readonly URL_API : 'http://localhost:3000/api/employee';
+  readonly URL_API = 'http://localhost:3000/api/employee';
 
   constructor(private http:HttpClient) { 
     this.selectedEmployeed = new Employee();

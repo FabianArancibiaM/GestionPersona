@@ -9,14 +9,10 @@ employeeCtrl.getEmployees = async (req,res)=>{
 
 employeeCtrl.createEmployee = async (req,res)=>{   
     const employee = new Employee(req.body);
-    const estatus = await employee.save();
-    estatus
-        .then(bd=>res.json({
-            'status':'Se guardo correctamente'
-        }))
-        .catch(err=>res.json({
-            'status': err
-        }));
+    await employee.save();
+    res.json({
+        'status':'Guardado Correctamente'
+    });
 };
 
 employeeCtrl.getEmployee =  async (req,res)=>{   

@@ -3,35 +3,65 @@
     <div class="col s5">
       <div class="card">
         <div class="card-content">
-          <form #employeeForm="ngForm" (ngSubmit)="addEmployee(employeeForm)"></form>
-          <div class="row">
-            <div class="input-field col s12">
-              <input type="text" name="name" #name="ngModel" [(ngModel)]="employeeService.selectedEmployeed.name" placeholder="Ingresa tu nombre">
+          <form #employeeForm="ngForm">
+            <input class="hidden" name="_id" #_id="ngModel" [(ngModel)]="employeeService.selectedEmployeed._id">
+            <div class="row">
+              <div class="input-field col s12">
+                <input type="text" name="name" #name="ngModel" [(ngModel)]="employeeService.selectedEmployeed.name" placeholder="Ingresa tu nombre">
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <input type="text" name="position" #name="ngModel" [(ngModel)]="employeeService.selectedEmployeed.position" placeholder="Ingresa tu posicion">
+            <div class="row">
+              <div class="input-field col s12">
+                <input type="text" name="position" #name="ngModel" [(ngModel)]="employeeService.selectedEmployeed.position" placeholder="Ingresa tu posicion">
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <input type="text" name="office" #name="ngModel" [(ngModel)]="employeeService.selectedEmployeed.office" placeholder="Ingresa tu office">
+            <div class="row">
+              <div class="input-field col s12">
+                <input type="text" name="office" #name="ngModel" [(ngModel)]="employeeService.selectedEmployeed.office" placeholder="Ingresa tu office">
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <input type="number" name="salary" #name="ngModel" [(ngModel)]="employeeService.selectedEmployeed.salary" placeholder="Ingresa tu Salario">
+            <div class="row">
+              <div class="input-field col s12">
+                <input type="number" name="salary" #name="ngModel" [(ngModel)]="employeeService.selectedEmployeed.salary" placeholder="Ingresa tu Salario">
+              </div>
             </div>
-          </div>
-          <div class="card-action">
-            <div class="input-field col s12">
-              <button class="btn rigth" (click)="addEmployee(employeeForm)">Guardar</button>
-              <button class="btn" (click)="resetForm(employeeForm)">Limpiar</button>
+            <div class="card-action">
+              <div class="input-field col s12">
+                <button class="btn rigth" (click)="addEmployee(employeeForm)">Guardar</button>
+              </div>
+              <div class="input-field col s12">
+                <button class="btn" (click)="resetForm(employeeForm)">Limpiar</button>
+              </div>              
             </div>
-          </div>
+          </form>          
         </div>
       </div>
     </div>
+    <div class="col s7">
+        <table>
+          <thead>
+            <th>Nombre</th>
+            <th>Posicion</th>
+            <th>Oficina</th>
+            <th>Salario</th>
+          </thead>
+          <tbody>
+              <tr *ngFor="let employee of employeeService.employees"> 
+                <td>{{employee.name}}</td>
+                <td>{{employee.position}}</td>
+                <td>{{employee.office}}</td>
+                <td>{{employee.salary}}</td>
+                <td>
+                  <a (click)="editEmployee(employee)">
+                    <i class="material-icons">edit</i>
+                  </a>
+                  <a (click)="editEmployee()">
+                      <i class="material-icons">delete</i>
+                  </a>
+                </td>
+              </tr>
+          </tbody>
+        </table>
+      </div>
   </div>
 </div>
