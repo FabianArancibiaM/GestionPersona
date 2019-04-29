@@ -4,7 +4,7 @@
       <div class="card">
         <div class="card-content">
           <form #employeeForm="ngForm">
-            <input class="hidden" name="_id" #_id="ngModel" [(ngModel)]="employeeService.selectedEmployeed._id">
+            <input type="hidden" name="id" #id="ngModel" [(ngModel)]="employeeService.selectedEmployeed._id">
             <div class="row">
               <div class="input-field col s12">
                 <input type="text" name="name" #name="ngModel" [(ngModel)]="employeeService.selectedEmployeed.name" placeholder="Ingresa tu nombre">
@@ -55,7 +55,7 @@
                   <a (click)="editEmployee(employee)">
                     <i class="material-icons">edit</i>
                   </a>
-                  <a (click)="editEmployee()">
+                  <a (click)="deleteEmployee(employee.id)">
                       <i class="material-icons">delete</i>
                   </a>
                 </td>

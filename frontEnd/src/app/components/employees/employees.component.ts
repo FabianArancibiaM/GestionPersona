@@ -22,11 +22,16 @@ export class EmployeesComponent implements OnInit {
   }
 
   addEmployee(form?:NgForm){
-    if(form.value._id){
+    console.log(form.value);
+    console.log(form.value.id);
+    
+    
+    if(form.value.id){
       this.employeeService.putEmployees(form.value)
         .subscribe(res=>{
           this.resetForm(form);
           M.toast({html: 'Se guardo correctamente'});
+          this.getEmployee();
         });
     }else{
       if(form){
@@ -34,10 +39,13 @@ export class EmployeesComponent implements OnInit {
           .subscribe(res=>{
             this.resetForm(form);
             M.toast({html: 'Se guardo correctamente'});
+            this.getEmployee();
           });
       }
     }
   }
+
+  
 
   getEmployee(){
     this.employeeService.getEmployees()
@@ -50,6 +58,16 @@ export class EmployeesComponent implements OnInit {
   editEmployee(employee: Employee){
     this.employeeService.selectedEmployeed = employee;
 
+  }
+
+  deleteEmployee(id:string){
+    if(confirm('Esta seguro que quiere eliminarlo?')){
+      this.employeeService.deleteEmployees(id)
+      .subscribe(res => {
+        M.toast({html: 'Se elimino correctamente'});
+        this.getEmployee();
+      });
+    }    
   }
 
   resetForm(form?:NgForm){

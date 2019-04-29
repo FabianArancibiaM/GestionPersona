@@ -21,9 +21,9 @@ export class EmployeeService {
     return this.http.post(this.URL_API+'/',employee);
   }
   putEmployees(employee:Employee){
-    return this.http.put(this.URL_API+`/${employee._id}`,employee);
+    return this.http.put(this.URL_API+`/${employee.id}`,employee);
   }
-  deleteEmployees(_id:string){
-    return this.http.delete(this.URL_API+`/${_id}`);
+  deleteEmployees(id:string){
+    return this.http.delete(this.URL_API+`/${id}`);
   }
 }
